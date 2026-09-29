@@ -1,0 +1,45 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--foreground);
+  --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--foreground);
+  --color-border: var(--border); --color-input: var(--border); --color-ring: var(--primary); --color-destructive: var(--destructive); --color-destructive-foreground: var(--primary-foreground);
+  --color-success: var(--success); --color-success-soft: var(--success-soft); --color-warning: var(--warning); --color-warning-soft: var(--warning-soft);
+  --color-danger-soft: var(--danger-soft); --color-info: var(--info); --color-info-soft: var(--info-soft); --color-peach: var(--peach);
+  --font-sans: "Inter", sans-serif; --font-display: "Playfair Display", Georgia, serif;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+}
+:root { --background: oklch(0.985 0.002 95); --foreground: oklch(0.29 0 0); --card: oklch(1 0 0); --primary: oklch(0.694 0.202 37); --primary-foreground: oklch(1 0 0); --secondary: oklch(0.973 0.003 90); --muted: oklch(0.965 0.002 90); --muted-foreground: oklch(0.52 0 0); --accent: oklch(0.954 0.029 44); --peach: oklch(0.934 0.049 44); --border: oklch(0.92 0.003 90); --destructive: oklch(0.60 0.204 28); --danger-soft: oklch(0.966 0.027 25); --success: oklch(0.65 0.09 155); --success-soft: oklch(0.955 0.027 155); --warning: oklch(0.76 0.15 75); --warning-soft: oklch(0.971 0.038 80); --info: oklch(0.63 0.16 250); --info-soft: oklch(0.96 0.023 250); --shadow-soft: 0 5px 28px -14px oklch(0.41 0.03 50 / 0.17); }
+* { box-sizing: border-box; border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); font-size: 14px; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+::selection { background: var(--peach); }
+.surface { background: var(--card); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-soft); }
+.surface-flat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
+.display { font-family: var(--font-display); letter-spacing: 0; }
+.app-enter { animation: appear .28s ease-out both; }
+@keyframes appear { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shimmer { to { background-position-x: -200%; } }
+.skeleton { background: linear-gradient(90deg,var(--muted) 25%,var(--card) 50%,var(--muted) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+.sidebar-item { transition: background-color .2s, color .2s; }
+.sidebar-item:hover { background: var(--accent); }
+.sidebar-item.active { background: var(--accent); color: var(--primary); font-weight: 650; }
+.tab-active { color: var(--primary); border-color: var(--primary); }
+.badge-success { background: var(--success-soft); color: oklch(0.42 0.09 155); }
+.badge-warning { background: var(--warning-soft); color: oklch(0.48 0.12 75); }
+.badge-danger { background: var(--danger-soft); color: oklch(0.49 0.17 28); }
+.badge-info { background: var(--info-soft); color: oklch(0.46 0.14 250); }
+.badge-neutral { background: var(--muted); color: var(--muted-foreground); }
+.badge-primary { background: var(--accent); color: oklch(0.49 0.18 37); }
+.kanban-card { transition: transform .2s, box-shadow .2s, border-color .2s; }
+.kanban-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); border-color: var(--peach); }
+.scrollbar-thin::-webkit-scrollbar { height: 7px; width: 7px; }.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }

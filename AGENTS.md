@@ -1,0 +1,2 @@
+- Keep the presentation prototype on the index route with view state and shared data modules; this keeps admin and employee demo transitions synchronized without backend persistence.
+- Store all LoveTales sample records in `src/state/mock-data.ts`; one source of truth prevents cross-screen ID and date drift.
